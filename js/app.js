@@ -79,3 +79,11 @@ function getWinner() {
 
   return winner ? winner : board.includes("") ? null : "T";
 }
+
+function recordScore(winner) {
+  if (winner == "X") {
+      xScore++;
+  } else if (winner == "O") {
+      oScore++;
+  }
+}
