@@ -96,6 +96,7 @@ function getWinner() {
 function oFirst () {
   init();
   turn = "O";
+  document.getElementById("playerTurn").innerHTML = "Turn: O";
   document.getElementById("o-button").style.display = "none";
 
 }
