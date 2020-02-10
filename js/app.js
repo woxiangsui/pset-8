@@ -16,6 +16,8 @@ const winningConditions = [
 let board;
 let turn;
 let win;
+let xScore = 0;
+let oScore = 0;
 
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 
@@ -74,16 +76,16 @@ function getWinner() {
       board[condition[1]] === board[condition[2]]
     ) {
       winner = board[condition[0]];
+
+      if (winner == "O") {
+          oScore++;
+        document.getElementById("opoints").innerHTML = oScore;
+      } else if (winner == "X") {
+          xScore++;
+        document.getElementById("xpoints").innerHTML = xScore;
+      }
     }
   });
 
   return winner ? winner : board.includes("") ? null : "T";
-}
-
-function recordScore(winner) {
-  if (winner == "X") {
-      xScore++;
-  } else if (winner == "O") {
-      oScore++;
-  }
 }
