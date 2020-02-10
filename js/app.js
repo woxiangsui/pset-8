@@ -18,7 +18,6 @@ let turn;
 let win;
 let xScore = 0;
 let oScore = 0;
-let switchFirst = false;
 
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 
@@ -96,7 +95,6 @@ function getWinner() {
 
 function oFirst () {
   init();
-  var switchFirst = true;
   turn = "O";
   document.getElementById("o-button").style.display = "none";
 
