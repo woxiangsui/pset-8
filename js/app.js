@@ -40,9 +40,9 @@ function init() {
   turn = "X";
   win = null;
 
-  render();
+  document.getElementById("o-button").style.display = "";
 
-  document.getElementById("o-button").style.visibiliy = "visible";
+  render();
 }
 
 function render() {
@@ -62,13 +62,8 @@ function takeTurn(e) {
 
     if (board[index] === "") {
       board[index] = turn;
-      if (!switchFirst) {
-        turn = turn === "O" ? "X" : "O";
-        win = getWinner();
-      } else {
-        turn = turn === "X" ? "O" : "X";
-        win = getWinner();
-      }
+      turn = turn === "X" ? "O" : "X";
+      win = getWinner();
 
       render();
     }
@@ -103,6 +98,6 @@ function oFirst () {
   init();
   var switchFirst = true;
   turn = "O";
-  document.getElementById("o-button").style.visibility = "hidden";
+  document.getElementById("o-button").style.display = "none";
 
 }
