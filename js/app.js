@@ -39,7 +39,7 @@ function init() {
   turn = "X";
   win = null;
 
-  document.getElementById("o-button").style.display = "";
+  document.getElementById("o-button").style.display = ""; //shows the button
 
   render();
 }
@@ -80,10 +80,10 @@ function getWinner() {
     ) {
       winner = board[condition[0]];
 
-      if (winner == "O") {
+      if (winner == "O") { // O points
           oScore++;
         document.getElementById("opoints").innerHTML = oScore;
-      } else if (winner == "X") {
+      } else if (winner == "X") { // X points
           xScore++;
         document.getElementById("xpoints").innerHTML = xScore;
       }
@@ -93,10 +93,9 @@ function getWinner() {
   return winner ? winner : board.includes("") ? null : "T";
 }
 
-function oFirst () {
+function oFirst () { //switches o for x
   init();
   turn = "O";
-  document.getElementById("playerTurn").innerHTML = "Turn: O";
-  document.getElementById("o-button").style.display = "none";
-
+  document.getElementById("playerTurn").innerHTML = "Turn: O"; // changes turn display
+  document.getElementById("o-button").style.display = "none"; // hides the button
 }
