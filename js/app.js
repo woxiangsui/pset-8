@@ -18,6 +18,7 @@ let turn;
 let win;
 let xScore = 0;
 let oScore = 0;
+let switchFirst = false;
 
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 
@@ -40,6 +41,8 @@ function init() {
   win = null;
 
   render();
+
+  document.getElementById("o-button").style.visibiliy = "visible";
 }
 
 function render() {
@@ -59,8 +62,13 @@ function takeTurn(e) {
 
     if (board[index] === "") {
       board[index] = turn;
-      turn = turn === "X" ? "O" : "X";
-      win = getWinner();
+      if (!switchFirst) {
+        turn = turn === "O" ? "X" : "O";
+        win = getWinner();
+      } else {
+        turn = turn === "X" ? "O" : "X";
+        win = getWinner();
+      }
 
       render();
     }
@@ -89,4 +97,12 @@ function getWinner() {
   });
 
   return winner ? winner : board.includes("") ? null : "T";
+}
+
+function oFirst () {
+  init();
+  var switchFirst = true;
+  turn = "O";
+  document.getElementById("o-button").style.visibility = "hidden";
+
 }
